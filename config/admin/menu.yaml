@@ -17,7 +17,7 @@ easy_admin:
                   - { entity: 'Skill', label: 'Keahlian', icon: 'hand-o-right', params: { sortField: 'createdAt', sortDirection: 'DESC' } }
                   - { entity: 'Region', label: 'Propinsi', icon: 'hand-o-right', params: { sortField: 'createdAt', sortDirection: 'DESC' } }
                   - { entity: 'City', label: 'Kota', icon: 'hand-o-right', params: { sortField: 'createdAt', sortDirection: 'DESC' } }
-                  - { entity: 'Contract', label: 'Kontrak/Surat Keputusan', icon: 'hand-o-right', params: { sortField: 'createdAt', sortDirection: 'DESC' } }
+                  - { entity: 'Contract', label: 'Kontrak / Surat Keputusan', icon: 'hand-o-right', params: { sortField: 'createdAt', sortDirection: 'DESC' } }
                   - { entity: 'Holiday', label: 'Hari Libur', icon: 'hand-o-right', params: { sortField: 'createdAt', sortDirection: 'DESC' } }
             - label: 'Perusahaan'
               role: '%env(string:SEMART_SECURITY_COMPANY_MENU)%'
@@ -25,6 +25,7 @@ easy_admin:
               children:
                   - { entity: 'Company', label: 'Perusahaan', icon: 'hand-o-right', params: { sortField: 'createdAt', sortDirection: 'DESC' } }
                   - { entity: 'Department', label: 'Departemen', icon: 'hand-o-right', params: { sortField: 'createdAt', sortDirection: 'DESC' } }
+                  - { entity: 'CompanyDepartment', label: 'Departemen Perusahaan', icon: 'hand-o-right', params: { sortField: 'createdAt', sortDirection: 'DESC' } }
                   - { entity: 'JobLevel', label: 'Level Jabatan', icon: 'hand-o-right', params: { sortField: 'createdAt', sortDirection: 'DESC' } }
                   - { entity: 'JobTitle', label: 'Jabatan', icon: 'hand-o-right', params: { sortField: 'createdAt', sortDirection: 'DESC' } }
                   - { entity: 'CompanyCost', label: 'Beban Gaji Perusahaan', icon: 'hand-o-right', params: { sortField: 'createdAt', sortDirection: 'DESC' } }

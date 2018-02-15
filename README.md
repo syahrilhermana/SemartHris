@@ -1,10 +1,6 @@
-# SemartHris
+# SmartHMS
 
-SemartHris adalah Enterprise Grade Human Resources Information System (HRIS) yang dapat digunakan untuk membantu memudahkan tugas HRD Perusahaan.
-
-## Tahap Pengembangan
-
-SemartHris belum dapat digunakan untuk produksi dan sedang dalam proses pengembangan.
+SmartHMS adalah Enterprise Grade Human Resources Information System (HRIS) yang dapat digunakan untuk membantu memudahkan tugas HRD Perusahaan.
 
 ## Minimum Requirement
 
@@ -82,14 +78,72 @@ SemartHris belum dapat digunakan untuk produksi dan sedang dalam proses pengemba
 - [X] Buka halaman `<HOST>:<PORT>/` untuk halaman admin
 - [X] Buka halaman `<HOST>:<PORT>/api` untuk halaman API
 
+**NOTE**:
+
+Jika UUID masih tidak berjalan dengan baik seperti mendapatkan pesan error `uuid_generated_v4()`
+jalankan query ini.
+
+```lang=bash
+   SET search_path = public;
+   
+   CREATE OR REPLACE FUNCTION uuid_nil()
+   RETURNS uuid
+   AS '$libdir/uuid-ossp', 'uuid_nil'
+   IMMUTABLE STRICT LANGUAGE C;
+   
+   CREATE OR REPLACE FUNCTION uuid_ns_dns()
+   RETURNS uuid
+   AS '$libdir/uuid-ossp', 'uuid_ns_dns'
+   IMMUTABLE STRICT LANGUAGE C;
+   
+   CREATE OR REPLACE FUNCTION uuid_ns_url()
+   RETURNS uuid
+   AS '$libdir/uuid-ossp', 'uuid_ns_url'
+   IMMUTABLE STRICT LANGUAGE C;
+   
+   CREATE OR REPLACE FUNCTION uuid_ns_oid()
+   RETURNS uuid
+   AS '$libdir/uuid-ossp', 'uuid_ns_oid'
+   IMMUTABLE STRICT LANGUAGE C;
+   
+   CREATE OR REPLACE FUNCTION uuid_ns_x500()
+   RETURNS uuid
+   AS '$libdir/uuid-ossp', 'uuid_ns_x500'
+   IMMUTABLE STRICT LANGUAGE C;
+   
+   CREATE OR REPLACE FUNCTION uuid_generate_v1()
+   RETURNS uuid
+   AS '$libdir/uuid-ossp', 'uuid_generate_v1'
+   VOLATILE STRICT LANGUAGE C;
+   
+   CREATE OR REPLACE FUNCTION uuid_generate_v1mc()
+   RETURNS uuid
+   AS '$libdir/uuid-ossp', 'uuid_generate_v1mc'
+   VOLATILE STRICT LANGUAGE C;
+   
+   CREATE OR REPLACE FUNCTION uuid_generate_v3(namespace uuid, name text)
+   RETURNS uuid
+   AS '$libdir/uuid-ossp', 'uuid_generate_v3'
+   IMMUTABLE STRICT LANGUAGE C;
+   
+   CREATE OR REPLACE FUNCTION uuid_generate_v4()
+   RETURNS uuid
+   AS '$libdir/uuid-ossp', 'uuid_generate_v4'
+   VOLATILE STRICT LANGUAGE C;
+   
+   CREATE OR REPLACE FUNCTION uuid_generate_v5(namespace uuid, name text)
+   RETURNS uuid
+   AS '$libdir/uuid-ossp', 'uuid_generate_v5'
+   IMMUTABLE STRICT LANGUAGE C;
+```
+
 ## Unit Test
 
 Untuk menjalankan unit testing, Anda cukup menjalankan perintah `php vendor/bin/phpunit`
 
 ## Kontributor
 
-Proyek ini dikembangkan oleh [Muhamad Surya Iksanudin](https://github.com/ad3n) dan para [kontributor](https://github.com/KejawenLab/SemartHris/graphs/contributors)
-untuk [KejawenLab](https://github.com/KejawenLab).
+Proyek ini dikembangkan oleh [KejawenLab](https://github.com/KejawenLab).
 
 ## TODO
 
@@ -97,40 +151,4 @@ Untuk apa saja yang sudah dan belum dikerjakan bisa melihat [TODO LIST](TODO.md)
 
 ## ROADMAP
 
-Untuk mengetahui roadmap dari aplikasi SemartHRIS bisa melihat [ROADMAP](ROADMAP.md)
-
-## Lisensi
-
-Proyek ini menggunakan lisensi [MIT](https://tldrlegal.com/license/mit-license) &copy; Muhamad Surya Iksanudin.
-Pastikan Anda memahami kewajiban dan hak Anda sebelum Anda memutuskan untuk menggunakan software ini.
-
-## Donasi
-
-Untuk mensupport proyek ini, Anda dapat memberikan donasi melalui rekening berikut:
-
-- BCA 607-045-794-4 a/n Muhamad Surya Iksanudin
-- Mandiri 121-00-069-6522-6 a/n Muhamad Surya Iksanudin
-
-## Profesional Support
-
-Bila Anda memerlukan profesional support atau ingin mengadakan kerjasama dengan saya, dapat menghubungi saya melalui:
-
-- Email: [surya.kejawen@gmail.com](mailto:surya.kejawen@gmail.com)
-- WA: 0878-000-939-15
-- FB: [KejawenLab](https://facebook.com/KejawenLab)
-
-## Keamanan Aplikasi
-
-Jika Anda menemukan bug/celah keamaan pada aplikasi ini, Anda dapat mengirimkan email dengan subject: **[SEMARTHRIS][SECURITY] SUBJECT** ke alamat [surya.kejawen@gmail.com](mailto:surya.kejawen@gmail.com)
-
-## Preview
-
-![SemartHris Profil Karyawan Preview](preview/preview.png)
-
-![SemartHris Laporan Absensi Preview](preview/preview2.png)
-
-![SemartHris Detail Gaji](preview/penggajian3.png)
-
-![SemartHris API Preview](preview/api-preview.png)
-
-Butuh lebih banyak screenshot? silahkan cek folder [preview](preview)
+Untuk mengetahui roadmap dari aplikasi SmartHMS bisa melihat [ROADMAP](ROADMAP.md)
